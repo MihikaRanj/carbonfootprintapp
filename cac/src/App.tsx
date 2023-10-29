@@ -29,6 +29,7 @@ import { auth } from './firebase';
 import { useState, useEffect } from 'react';
 import { AuthContext, useAuthInit } from './auth';
 import RegisterPage from './pages/RegisterPage';
+import HomePage from './pages/HomePage';
 setupIonicReact();
 
 
@@ -55,6 +56,7 @@ const App: React.FC = () => {
             <Route exact path="/register">
               <RegisterPage />
             </Route>
+            <Route path="/home" component={HomePage} />
             <Route path="/app" component={Tabs} />
           </IonRouterOutlet>
         </IonReactRouter>

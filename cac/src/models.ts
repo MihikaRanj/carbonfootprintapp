@@ -12,7 +12,7 @@ export interface Vehicle {
 export interface Basics {
     id: string;
     peopleInHome: string;
-    zipCode: number;
+    zipCode: string;
     primaryHeatingSource: string;
   }
 

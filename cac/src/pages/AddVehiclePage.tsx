@@ -58,19 +58,19 @@ const AddVehiclePage: React.FC = () => {
       <IonContent className="ion-padding">
         <IonList>
           <IonItem>
-            <IonLabel position="stacked">Vehicle Make/ Brand</IonLabel>
-            <IonInput value={vehicleBrandName}
+            <IonLabel position="stacked" >Vehicle Make/ Brand <IonText color="danger">(Required)</IonText></IonLabel> 
+            <IonInput required={true} value={vehicleBrandName}
               onIonChange={(event) => setVehicleBrandName(String(event.detail.value))}
             />
           </IonItem>
           <IonItem>
-            <IonLabel position="stacked">How many miles do you drive per week?</IonLabel>
+            <IonLabel position="stacked">How many miles do you drive per week? <IonText color="danger">(Required)</IonText></IonLabel>
             <IonInput value={milesDriven}
               onIonChange={(event) => setMilesDriven(String(event.detail.value))}
             />
           </IonItem>
           <IonItem>
-            <IonLabel position="stacked">What is your car's fuel economy in Miles per Gallon?</IonLabel>
+            <IonLabel position="stacked">What is your car's fuel economy in Miles per Gallon? <IonText color="danger">(Required)</IonText></IonLabel>
             
             <IonText>Tip: The national average is 21.6 miles per gallon
             <IonButton shape="round" href="#" onClick={()=> {window.open('https://www.fueleconomy.gov', '_system', 'location=yes')}}  routerLink="/app/vehicle">Lookup Fuel Economy of your car</IonButton> 
@@ -84,8 +84,9 @@ const AddVehiclePage: React.FC = () => {
             <IonText>Do you perform regular maintenance on your vehicle?</IonText>
             <IonCheckbox justify="start" checked={false} onIonChange={(e) => setVehicleMaintFlag((e.detail.checked))}>Yes</IonCheckbox>
             </IonItem>
-          <IonButton expand="block" onClick={handleSave}>Save</IonButton>
-          <IonButton expand="block" onClick={handleCancel}>Cancel</IonButton>
+          <IonButton onClick={handleSave}>Save</IonButton>
+          <IonButton onClick={handleCancel}>Cancel</IonButton>
+          <IonButton routerLink="/app/tab1">Go Back</IonButton>
         </IonList>
       </IonContent>
     </IonPage>

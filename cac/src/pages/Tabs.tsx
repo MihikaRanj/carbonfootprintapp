@@ -22,7 +22,7 @@ import { useAuth, useAuthInit } from '../auth'
 import CarbonFootprintCalculatorPage from './CarbonFootprintCalculatorPage'
 import { auth } from '../firebase';
 import VehiclePage from './VehiclePage';
-import BasicsPage from './Basicspage';
+import BasicsPage from './BasicsPage';
 import AddVehiclePage from './AddVehiclePage';
 import WastePage from './WastePage';
 

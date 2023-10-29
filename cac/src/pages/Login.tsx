@@ -45,7 +45,8 @@ const Login: React.FC = () => {
 
     if (loggedIn) {
         console.log('loggedInInLogin:', loggedIn);
-        return <Redirect to="/app" />;
+       // return <Redirect to="/app" />;
+       return <Redirect to="/home" />;
     }
     console.log('loggedInInLogin:', loggedIn);
     return (

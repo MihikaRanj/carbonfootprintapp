@@ -89,7 +89,6 @@ const VehiclePage: React.FC = () => {
           )}
         </IonList>
         <IonButton routerLink="/app/tab1">Go Back</IonButton>
-        <IonButton routerLink="/app/cfc">Calculate Your Carbon Footprint</IonButton>
       </IonContent>
 
 

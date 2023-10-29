@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonContent, IonFab, IonFabButton, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonContent, IonFab, IonFabButton, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonRadio, IonRadioGroup, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import { useAuthInit } from '../auth';
 import { Basics, Vehicle, toBasics, toVehicle } from '../models';
 import { useEffect, useState } from 'react';
@@ -79,13 +79,13 @@ const BasicsPage: React.FC = () => {
 
           <React.Fragment>
             <IonItem>
-              <IonLabel position="stacked">Number of People In Home</IonLabel>
-              <IonInput placeholder={String(basics.at(0)?.peopleInHome)} value={peopleInHome} onIonChange={(e) => setPeopleInHome(String(e.target.value))}
+              <IonLabel position="stacked">Number of People In Home <IonText color="danger">(Required)</IonText></IonLabel>
+              <IonInput placeholder={basics.at(0)?.peopleInHome} value={peopleInHome} onIonChange={(e) => setPeopleInHome(String(e.target.value))}
               />
             </IonItem>
             <IonRadioGroup value={(primaryHeatingSource == "undefined") ? orgPrimaryHeatingSource : primaryHeatingSource} onIonChange={(e) => setPrimaryHeatingSource(String(e.target.value))}>
               <IonListHeader>
-                <IonLabel>Primary Heating Source: {primaryHeatingSource}</IonLabel>
+                <IonLabel>Primary Heating Source</IonLabel>
               </IonListHeader>
               <IonItem>
                 <IonLabel>Natural Gas</IonLabel>
@@ -115,15 +115,13 @@ const BasicsPage: React.FC = () => {
 
             <IonItem >
               <IonLabel position="stacked">Zipcode</IonLabel>
-              <IonInput placeholder={String(basics.at(0)?.zipCode)} value={zipCode} onIonChange={(e) => setZipCode(String(e.target.value))}
+              <IonInput placeholder={basics.at(0)?.zipCode} value={zipCode} onIonChange={(e) => setZipCode(String(e.target.value))}
               />
             </IonItem>
           </React.Fragment>
 
         </IonList>
         <IonButton routerLink="/app/tab1">Go Back</IonButton>
-        <IonButton routerLink="/app/vehicle">Add Vehicles</IonButton>
-        <IonButton routerLink="/app/cfc">Calculate Your Carbon Footprint</IonButton>
       </IonContent>
     </IonPage>
   );

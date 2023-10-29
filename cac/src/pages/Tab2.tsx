@@ -11,7 +11,7 @@ const Tab2: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Learn about carbon footprint</IonTitle>
+                    <IonTitle>Do you want to reduce your carbon footprint?</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding"></IonContent>

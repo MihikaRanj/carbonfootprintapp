@@ -124,8 +124,6 @@ const WastePage: React.FC = () => {
 
         </IonList>
         <IonButton routerLink="/app/tab1">Go Back</IonButton>
-        <IonButton routerLink="/app/vehicle">Add Vehicles</IonButton>
-        <IonButton routerLink="/app/cfc">Calculate Your Carbon Footprint</IonButton>
       </IonContent>
     </IonPage>
   );
