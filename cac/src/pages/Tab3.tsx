@@ -12,7 +12,7 @@ const Tab3: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Learn about carbon footprint and more..</IonTitle>
+                    <IonTitle>Learn</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
@@ -26,7 +26,7 @@ const Tab3: React.FC = () => {
                     <h3>What is the problem of having a carbon footprint?</h3>
                 </IonText>
                 <IonText>
-                    With a lot of GHG (greenhouse gases) in the atmosphere, problems such as global temperatures can increase
+                    With a lot of GHG (greenhouse gases) in the atmosphere, problems such as global temperature increase, changes in weather patterns, melting ice, and other human health issues can occur more frequently.
                 </IonText>
                 <IonText color='primary'>
                     <h3>What is net zero?</h3>

@@ -96,6 +96,22 @@ const Reduce: React.FC = () => {
                   </li>
                 </React.Fragment>
               )}
+             </ul>
+          </div>
+
+            <br />
+            <div id="list">
+            <ul>
+            <h5>Other Ways to Reduce Your Footprint:</h5>
+            <li>Switch lights off unless your using them.</li>
+            <li>Try biking or walking to nearby places.</li>
+            <li>Use reusable bags while shopping.</li>
+            <li>Wash your clothes in cold water.</li>
+            <li>Try not to buy fast fashion.</li>
+            <li>Don't throw away clothes, instead donate it or give it to a thrift store (unless it is severely damaged).</li>
+            <li>Don't leave water on unless it is in using.</li>
+            <li>Eat food that is currently in season.</li>
+            <li>Create a compost (look on extra page to find some links on how to make a compost).</li>
             </ul>
           </div>
         </IonList>

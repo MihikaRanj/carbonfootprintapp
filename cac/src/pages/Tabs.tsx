@@ -54,10 +54,7 @@ const Tabs: React.FC = () => {
                 <Route path='/app/basics' component={BasicsPage}/>
                 <Route path='/app/waste' component={WastePage}/>
                 <Route exact path="/app">
-                    <Redirect to="/app/tab1" />
-                </Route>
-                <Route exact path="/app/tab1/:id">
-                    <CarbonFootprintCalculatorPage />
+                    <Redirect to="/app/calculate" />
                 </Route>
             </IonRouterOutlet>
             <IonTabBar slot='bottom'>

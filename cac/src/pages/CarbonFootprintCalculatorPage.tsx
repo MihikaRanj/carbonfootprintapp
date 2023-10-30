@@ -169,7 +169,7 @@ const CarbonFootprintCalculatorPage: React.FC = () => {
         <h3>
           <IonText>Your total calculated carbon footprint is: {totalCarbonEmissions.toFixed(2)}</IonText>
         </h3>
-        <IonButton routerLink="/app/tab1">Go Back</IonButton>
+        <IonButton routerLink="/app/calculate">Go Back</IonButton>
       </IonContent>
     </IonPage>
   );
