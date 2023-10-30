@@ -30,6 +30,7 @@ import { useState, useEffect } from 'react';
 import { AuthContext, useAuthInit } from './auth';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
+import LandingPage from './pages/LandingPage';
 setupIonicReact();
 
 
@@ -52,7 +53,8 @@ const App: React.FC = () => {
       <AuthContext.Provider value={{ loggedIn: auth!.loggedIn }}>
         <IonReactRouter>
           <IonRouterOutlet>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/" component={LandingPage} />
             <Route exact path="/register">
               <RegisterPage />
             </Route>

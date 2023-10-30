@@ -8,7 +8,7 @@ import CarbonFootprintCalculatorPage from './CarbonFootprintCalculatorPage';
 import { Redirect } from 'react-router';
 
 
-const Tab1: React.FC = () => {
+const Calculate: React.FC = () => {
 
     const addWaste = async () => {
     };
@@ -23,13 +23,13 @@ const Tab1: React.FC = () => {
     return (
         <IonPage>
             <IonContent className="ion-padding">
-                <IonButton expand="block" routerLink="/app/waste"> waste
+                <IonButton expand="block" routerLink='/app/basics'>Demographic Information
                 </IonButton>
-                <IonButton expand="block" routerLink='/app/basics'>demographic Information
+                <IonButton expand="block" routerLink="/app/waste">Waste Information
                 </IonButton>
-                <IonButton expand="block" routerLink="/app/vehicle">vehicle
+                <IonButton expand="block" routerLink="/app/vehicle">Vehicle Information
                 </IonButton>
-                <IonButton expand="block" routerLink="/app/cfc">view your carbon footprint
+                <IonButton expand="block" routerLink="/app/cfc">View your Carbon Footprint
                 </IonButton>
             </IonContent>
 
@@ -37,4 +37,4 @@ const Tab1: React.FC = () => {
     )
 }
 
-export default Tab1
+export default Calculate

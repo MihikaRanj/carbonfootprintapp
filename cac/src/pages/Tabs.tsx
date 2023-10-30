@@ -12,8 +12,6 @@ import {
     IonLabel,
 } from '@ionic/react'
 import { Redirect, Route } from 'react-router'
-import Tab1 from './Tab1'
-import Tab2 from './Tab2'
 
 import { ellipse, home as homeIcon, logOut, settings as settingsIcon, square, star, triangle } from 'ionicons/icons';
 import Tab3 from './Tab3'
@@ -25,6 +23,8 @@ import VehiclePage from './VehiclePage';
 import BasicsPage from './BasicsPage';
 import AddVehiclePage from './AddVehiclePage';
 import WastePage from './WastePage';
+import Reduce from './Reduce';
+import Calculate from './Calculate';
 
 const Tabs: React.FC = () => {
    /* const { loading, auth } = useAuthInit();
@@ -44,8 +44,8 @@ const Tabs: React.FC = () => {
     return (
         <IonTabs>
             <IonRouterOutlet>
-                <Route path='/app/tab1' component={Tab1}/>
-                <Route path='/app/tab2' component={Tab2}/>
+                <Route path='/app/calculate' component={Calculate}/>
+                <Route path='/app/reduce' component={Reduce}/>
                 <Route path='/app/tab3' component={Tab3}/>
                 <Route path='/app/tab4' component={Tab4}/>
                 <Route path='/app/cfc' component={CarbonFootprintCalculatorPage}/>
@@ -61,11 +61,11 @@ const Tabs: React.FC = () => {
                 </Route>
             </IonRouterOutlet>
             <IonTabBar slot='bottom'>
-                <IonTabButton tab='tab1' href='/app/tab1'>
+                <IonTabButton tab='calculate' href='/app/calculate'>
                     <IonIcon icon={ellipse}/>
                     <IonLabel>Calculate</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab='tab2' href='/app/tab2'>
+                <IonTabButton tab='reduce' href='/app/reduce'>
                     <IonIcon icon={triangle}></IonIcon>
                     <IonLabel>Reduce</IonLabel>
                 </IonTabButton>

@@ -6,6 +6,7 @@ import {
     IonContent,
     IonText,
     IonNavLink,
+    IonItem,
 } from '@ionic/react'
 
 const Tab4: React.FC = () => {
@@ -17,9 +18,8 @@ const Tab4: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
-            <IonText>Lookup Fuel Economy of your car.
-            <IonNavLink color='blue' onClick={()=> {window.open('https://www.fueleconomy.gov', '_system', 'location=yes')}}> Click here..</IonNavLink> 
-            </IonText>
+            <IonItem color={'warning'} href='app/tab4' onClick={()=> {window.open('https://www.fueleconomy.gov', '_system', 'location=yes')}}>Lookup Fuel Economy of your car.</IonItem> 
+            <IonItem color={'warning'} href='app/tab4' onClick={()=> {window.open('https://www.investopedia.com/best-carbon-offset-programs-5114611', '_system', 'location=yes')}}>Checkout Carbon Offset Programs</IonItem>
 
             </IonContent>
         </IonPage>

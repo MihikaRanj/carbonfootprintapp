@@ -52,7 +52,7 @@ const RegisterPage: React.FC = () => {
         <IonButton expand="block" onClick={handleRegister}>
           Create Account
         </IonButton>
-        <IonButton expand="block" fill="clear" routerLink="/">
+        <IonButton expand="block" fill="clear" routerLink="/login">
           Already have an account?
         </IonButton>
         <IonLoading isOpen={status.loading} />

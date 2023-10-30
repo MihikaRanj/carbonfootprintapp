@@ -26,18 +26,18 @@ const CarbonFootprintCalculatorPage: React.FC = () => {
     const wasteRef = firestore.collection('carbonfootprintperuser').doc(auth?.userId)
       .collection('waste');
     wasteRef.get().then(({ docs }) => setWaste(docs.map(toWaste)));
-   
+
   }, [auth?.userId]);
 
   //const carbonFootprint = carbonFootprintPerUser.find((carbonFootprint) => carbonFootprint.userid === "1234");
-   
+
   console.log('Inside CarbonFootprintCalculatorPage userid:', auth?.userId);
   console.log('Inside CarbonFootprintCalculatorPage basics:', basics);
   console.log('Inside CarbonFootprintCalculatorPage vehicles:', vehicles);
   vehicles.map((vehicle) => {
     totalCarbonEmissions = totalCarbonEmissions + vehicle.emissionsForVehicle;
     //waste.wasteEmissionAfterRecycling}
-    
+
   });
 
   waste.map((waste) => {
@@ -55,13 +55,13 @@ const CarbonFootprintCalculatorPage: React.FC = () => {
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Calculate Your Carbon Footprint</IonTitle>
+          <IonTitle>Your Carbon Footprint</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonList>
           <IonListHeader>
-            <IonTitle>Demographic Information</IonTitle>
+            <IonTitle>Demographic Data</IonTitle>
           </IonListHeader>
           {basics.map((basics) =>
             <React.Fragment>
@@ -89,7 +89,7 @@ const CarbonFootprintCalculatorPage: React.FC = () => {
         </IonList>
         <IonList>
           <IonListHeader>
-            <IonTitle>Vehicle Information</IonTitle>
+            <IonTitle>Vehicle Data</IonTitle>
           </IonListHeader>
           {vehicles.map((vehicle) =>
             <React.Fragment>
@@ -109,8 +109,8 @@ const CarbonFootprintCalculatorPage: React.FC = () => {
                 />
               </IonItem>
               <IonText>
-                  Vehicle {vehicle.vehicleBrandName} Carbon Emissions: {vehicle.emissionsForVehicle} pounds of CO2/ year
-                </IonText>
+                Vehicle {vehicle.vehicleBrandName} has carbon emissions of {vehicle.emissionsForVehicle.toFixed(2)} pounds of CO2/ year
+              </IonText>
             </React.Fragment>
           )}
         </IonList>
@@ -122,56 +122,53 @@ const CarbonFootprintCalculatorPage: React.FC = () => {
           {waste.map((waste) =>
             <React.Fragment>
               <IonText>
-                Based on the number of people in your household, your estimated greenhouse gas emissions from waste is {waste.wasteEmissionBasedOnPeopleInHome}.
+                Based on the number of people in your household, your estimated greenhouse gas emissions from waste is {waste.wasteEmissionBasedOnPeopleInHome.toFixed(2)}.
               </IonText>
-              <br/>
-                <IonText>
-                  If you recycle materials, your waste emissions may be lower.
-                </IonText>
-              
+              <br />
+              <IonText>
+                If you recycle materials, your waste emissions may be lower.
+              </IonText>
+
               <IonItem>
                 <IonCheckbox justify="start" disabled={true} checked={waste.recycleCans}>Do you recycle aluminum and steel cans?</IonCheckbox>
               </IonItem>
-              <IonText>
-                Based on whether your household recycles metal, you save {waste.wasteEmissionsReductionAfterRecyclingCans} average number of pounds of CO2 equivalent per year
+              <IonText hidden={!waste.recycleCans}>
+                Since you recycle metal, you save {waste.wasteEmissionsReductionAfterRecyclingCans.toFixed(2)} average number of pounds of CO2 equivalent per year
               </IonText>
               <IonItem>
                 <IonCheckbox justify="start" disabled={true} checked={waste.recyclePlastic}>Do you recycle plastic?</IonCheckbox>
               </IonItem>
-              <IonText>
-                Based on whether your household recycles plastic, you save {waste.wasteEmissionsReductionAfterRecyclingPlastics} average number of pounds of CO2 equivalent per year.
+              <IonText hidden={!waste.recyclePlastic}>
+                Since you recycle plastic, you save {waste.wasteEmissionsReductionAfterRecyclingPlastics.toFixed(2)} average number of pounds of CO2 equivalent per year.
               </IonText>
               <IonItem>
                 <IonCheckbox justify="start" disabled={true} checked={waste.recycleGlass}>Do you recycle glass?</IonCheckbox>
               </IonItem>
-              <IonText>
-                Based on whether your household recycles glass, you save {waste.wasteEmissionsReductionAfterRecyclingGlass} average number of pounds of CO2 equivalent per year.
+              <IonText hidden={!waste.recycleGlass}>
+                Since you recycle glass, you save {waste.wasteEmissionsReductionAfterRecyclingGlass.toFixed(2)} average number of pounds of CO2 equivalent per year.
               </IonText>
               <IonItem>
                 <IonCheckbox justify="start" disabled={true} checked={waste.recycleNewspaper}>Do you recycle newspaper?</IonCheckbox>
               </IonItem>
-              <IonText>
-                Based on whether your household recycles newspaper, you save {waste.wasteEmissionsReductionAfterRecyclingNewspaper} average number of pounds of CO2 equivalent per year.
+              <IonText hidden={!waste.recycleNewspaper}>
+                Since you recycle newspaper, you save {waste.wasteEmissionsReductionAfterRecyclingNewspaper.toFixed(2)} average number of pounds of CO2 equivalent per year.
               </IonText>
               <IonItem>
                 <IonCheckbox justify="start" disabled={true} checked={waste.recycleMagazines}>Do you recycle magazines?</IonCheckbox>
               </IonItem>
-              <IonText>
-                Based on whether your household recycles magazines, you save {waste.wasteEmissionsReductionAfterRecyclingMagazines} average number of pounds of CO2 equivalent per year
-              </IonText> 
-              <br/>
-              <br/>
-              <IonText>Total Waste Emissions after recycling: {waste.wasteEmissionAfterRecycling} </IonText>
-             
+              <IonText hidden={!waste.recycleMagazines}>
+                Since you recycle magazines, you save {waste.wasteEmissionsReductionAfterRecyclingMagazines.toFixed(2)} average number of pounds of CO2 equivalent per year
+              </IonText>
+              <br />
+              <br />
+              <IonText>Total Waste Emissions after recycling: {waste.wasteEmissionAfterRecycling.toFixed(2)} </IonText>
             </React.Fragment>
           )}
-          
+
         </IonList>
-        <IonList>
-          <IonListHeader>
-            <IonTitle>Your calculated carbon footprint is: {totalCarbonEmissions}</IonTitle>
-          </IonListHeader>
-        </IonList>
+        <h3>
+          <IonText>Your total calculated carbon footprint is: {totalCarbonEmissions.toFixed(2)}</IonText>
+        </h3>
         <IonButton routerLink="/app/tab1">Go Back</IonButton>
       </IonContent>
     </IonPage>

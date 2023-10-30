@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonContent, IonFab, IonFabButton, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonFab, IonFabButton, IonFooter, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonRow, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import { useAuthInit } from '../auth';
 import { Basics, Vehicle, toBasics, toVehicle } from '../models';
 import { useEffect, useState } from 'react';
@@ -46,25 +46,18 @@ const VehiclePage: React.FC = () => {
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Enter household vehicle information</IonTitle>
-          <IonFab vertical="center" horizontal="end">
-            <IonFabButton routerLink="/app/vehicle/add">
-              <IonIcon icon={add} />
-            </IonFabButton>
-          </IonFab>
+          <IonTitle>Vehicle Data</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonList>
-         
+          <IonListHeader>
+          <IonText>Enter your vehicle information:</IonText>
+          </IonListHeader>
           {vehicles.map((vehicle) =>
-           
-           
-         
             <React.Fragment>
-              <IonListHeader>
-              <IonTitle>Vehicles Data Entered</IonTitle>
-              </IonListHeader>
+             <br/>
+             <br/>
               <IonItem>
                 <IonLabel position="stacked">Vehicle Make/ Brand</IonLabel>
                 <IonInput readonly={true}  value={vehicle.vehicleBrandName}
@@ -88,9 +81,25 @@ const VehiclePage: React.FC = () => {
             </React.Fragment>
           )}
         </IonList>
-        <IonButton routerLink="/app/tab1">Go Back</IonButton>
       </IonContent>
-
+      <IonFooter >
+                <IonToolbar>
+                    <IonRow>
+                        <IonCol width-25 >
+                        </IonCol>
+                        <IonCol width-25 >
+                            <div>
+                            <IonButton routerLink="/app/calculate">Back</IonButton>
+                            </div>
+                        </IonCol>
+                        <IonCol width-25>
+                            <IonButton routerLink="/app/vehicle/add">Add</IonButton>
+                        </IonCol>
+                        <IonCol width-25 >
+                        </IonCol>
+                    </IonRow>
+                </IonToolbar>
+            </IonFooter>
 
 
     </IonPage>

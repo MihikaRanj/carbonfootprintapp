@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonCheckbox, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonText, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCheckbox, IonCol, IonContent, IonFooter, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonRow, IonText, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
 import { useAuthInit } from '../auth';
 import { Vehicle } from '../models';
 import { useState } from 'react';
@@ -64,18 +64,16 @@ const AddVehiclePage: React.FC = () => {
             />
           </IonItem>
           <IonItem>
-            <IonLabel position="stacked">How many miles do you drive per week? <IonText color="danger">(Required)</IonText></IonLabel>
+            <IonLabel position="stacked">How many miles do you drive per week? 
+            <br/><IonText color="danger">(Required)</IonText></IonLabel>
             <IonInput value={milesDriven}
               onIonChange={(event) => setMilesDriven(String(event.detail.value))}
             />
           </IonItem>
           <IonItem>
-            <IonLabel position="stacked">What is your car's fuel economy in Miles per Gallon? <IonText color="danger">(Required)</IonText></IonLabel>
-            
-            <IonText>Tip: The national average is 21.6 miles per gallon
-            <IonButton shape="round" href="#" onClick={()=> {window.open('https://www.fueleconomy.gov', '_system', 'location=yes')}}  routerLink="/app/vehicle">Lookup Fuel Economy of your car</IonButton> 
-            </IonText>
-            <IonTextarea value={milesPerGallon}
+            <IonLabel position="stacked" >What is your car's fuel economy? <IonText color="danger">(Required)</IonText> </IonLabel>
+            <IonText>Tip: The national average is 21.6 miles per gallon. Check Extra tab for help finding this. </IonText>
+            <IonInput value={milesPerGallon}
               onIonChange={(event) => setMilesPerGallon(String(event.detail.value))}
             />
 
@@ -84,11 +82,26 @@ const AddVehiclePage: React.FC = () => {
             <IonText>Do you perform regular maintenance on your vehicle?</IonText>
             <IonCheckbox justify="start" checked={false} onIonChange={(e) => setVehicleMaintFlag((e.detail.checked))}>Yes</IonCheckbox>
             </IonItem>
-          <IonButton onClick={handleSave}>Save</IonButton>
-          <IonButton onClick={handleCancel}>Cancel</IonButton>
-          <IonButton routerLink="/app/tab1">Go Back</IonButton>
         </IonList>
       </IonContent>
+      <IonFooter >
+                <IonToolbar>
+                    <IonRow>
+                        <IonCol width-25 >
+                        </IonCol>
+                        <IonCol width-25 >
+                            <div>
+                            <IonButton routerLink="/app/vehicle">Back</IonButton>
+                            </div>
+                        </IonCol>
+                        <IonCol width-25>
+                            <IonButton onClick={handleSave}>Save</IonButton>
+                        </IonCol>
+                        <IonCol width-25 >
+                        </IonCol>
+                    </IonRow>
+                </IonToolbar>
+            </IonFooter>
     </IonPage>
   );
 }
