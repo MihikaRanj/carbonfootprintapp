@@ -100,7 +100,7 @@ const BasicsPage: React.FC = () => {
           <React.Fragment>
             <IonItem>
               <IonLabel position="stacked">Number of People In Home <IonText color="danger">(Required)</IonText></IonLabel>
-              <IonInput placeholder={basics.at(0)?.peopleInHome} value={peopleInHome} onIonChange={(e) => setPeopleInHome(String(e.target.value))}
+              <IonInput placeholder={basics.at(0)?.peopleInHome} value={peopleInHome} onIonInput={(e) => setPeopleInHome(String(e.target.value))}
               />
             </IonItem>
             <IonRadioGroup value={(primaryHeatingSource == "undefined") ? orgPrimaryHeatingSource : primaryHeatingSource} onIonChange={(e) => setPrimaryHeatingSource(String(e.target.value))}>
@@ -134,7 +134,7 @@ const BasicsPage: React.FC = () => {
             </IonRadioGroup>
             <IonItem >
               <IonLabel position="stacked">Zipcode</IonLabel>
-              <IonInput placeholder={basics.at(0)?.zipCode} value={zipCode} onIonChange={(e) => setZipCode(String(e.target.value))}
+              <IonInput placeholder={basics.at(0)?.zipCode} value={zipCode} onIonInput={(e) => setZipCode(String(e.target.value))}
               />
             </IonItem>
           </React.Fragment>

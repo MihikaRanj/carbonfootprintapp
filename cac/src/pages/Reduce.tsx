@@ -67,43 +67,37 @@ const Reduce: React.FC = () => {
       </IonHeader>
       <IonContent className="ion-padding">
         <IonList>
-          <IonListHeader>
-            <IonText>Your customized plan to reduce footprint:</IonText>
-          </IonListHeader>
-          {vehicles.map((vehicle) =>
-            <React.Fragment>
-              <IonText>Reduce the number of miles you drive {vehicle.vehicleBrandName} by 1 mile per week to reduce your emissions by {(((vehicle.emissionsForVehicle / vehicle.milesDriven) / totalCarbonEmissions) * 100).toFixed(2)}% </IonText>
-              <br />
-              <IonText hidden={vehicle.vehicleMaintFlag}>Reduce your carbon emissions by {(vehicle.emissionsForVehicle * 0.04 * 100 / totalCarbonEmissions).toFixed(2)}% by performing regular maintenance on {vehicle.vehicleBrandName}</IonText>
-              <br />
-            </React.Fragment>
-          )}
+          <div id="list">
+            <h5>Your customized plan to reduce footprint:</h5>
+            <ul>
+              {vehicles.map((vehicle) =>
+                <React.Fragment>
+                  <li>Reduce the number of miles you drive {vehicle.vehicleBrandName} by 1 mile per week to reduce your emissions by {(((vehicle.emissionsForVehicle / vehicle.milesDriven) / totalCarbonEmissions) * 100).toFixed(2)}% </li>
+                  <li hidden={vehicle.vehicleMaintFlag}>Reduce your carbon emissions by {(vehicle.emissionsForVehicle * 0.04 * 100 / totalCarbonEmissions).toFixed(2)}% by performing regular maintenance on {vehicle.vehicleBrandName}</li>
+                </React.Fragment>
+              )}
 
-{waste.map((waste) =>
-            <React.Fragment>
-              <IonText hidden={waste.recycleCans}>
-                If you recycle metal, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingCans*100/totalCarbonEmissions).toFixed(2)}%.
-              </IonText>
-              <br />
-              <IonText hidden={waste.recyclePlastic}>
-                If you recycle plastic, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingPlastics*100/totalCarbonEmissions).toFixed(2)}%.
-              </IonText>
-              <br />
-              <IonText hidden={waste.recycleGlass}>
-                If you recycle glass, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingGlass*100/totalCarbonEmissions).toFixed(2)}%.
-              </IonText>
-              <br />
-              <IonText hidden={waste.recycleNewspaper}>
-                If you recycle newspaper, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingNewspaper*100/totalCarbonEmissions).toFixed(2)}%.
-              </IonText>
-              <br />
-              <IonText hidden={waste.recycleMagazines}>
-                If you recycle magazines, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingMagazines*100/totalCarbonEmissions).toFixed(2)}%.
-              </IonText>
-           
-              
-              </React.Fragment>
-          )}
+              {waste.map((waste) =>
+                <React.Fragment>
+                  <li hidden={waste.recycleCans}>
+                    If you recycle metal, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingCans * 100 / totalCarbonEmissions).toFixed(2)}%.
+                  </li>
+                  <li hidden={waste.recyclePlastic}>
+                    If you recycle plastic, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingPlastics * 100 / totalCarbonEmissions).toFixed(2)}%.
+                  </li>
+                  <li hidden={waste.recycleGlass}>
+                    If you recycle glass, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingGlass * 100 / totalCarbonEmissions).toFixed(2)}%.
+                  </li>
+                  <li hidden={waste.recycleNewspaper}>
+                    If you recycle newspaper, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingNewspaper * 100 / totalCarbonEmissions).toFixed(2)}%.
+                  </li>
+                  <li hidden={waste.recycleMagazines}>
+                    If you recycle magazines, you will reduce your footprint by {(wasteEmissionsReductionAfterRecyclingMagazines * 100 / totalCarbonEmissions).toFixed(2)}%.
+                  </li>
+                </React.Fragment>
+              )}
+            </ul>
+          </div>
         </IonList>
       </IonContent>
     </IonPage>
